@@ -5,30 +5,32 @@ function App() {
 
   return (
     <>
-    {/* main bg section */}
-      <div className='flex items-center justify-center mt-60'>
-        <div className='bg-[#2b2b2b] w-[850px] h-[350px] rounded-xl flex justify-center items-center '>
-          <div className=' bg-white w-1/4 h-[150px] m-5 rounded-xl'>
-            <h1 className='w-2/5 h-[20rem] bg-white rounded-xl '>A</h1>
-            <h1 className='w-2/5 h-[20rem] bg-white rounded-xl '>W</h1>
-            <h1 className='w-2/5 h-[20rem] bg-white rounded-xl '>S</h1>
-            <h1 className='w-2/5 h-[20rem] bg-white rounded-xl '>E</h1>
-            <h1 className='w-2/5 h-[20rem] bg-white rounded-xl '>D</h1>
+      {/* Piano wrapper */}
+      <div className='flex items-center justify-center min-h-screen bg-gray-900'>
+        <div className='flex bg-black rounded-lg p-4 gap-1'>
+
+          {/* White Keys */}
+          {['C', 'D', 'E', 'F', 'G', 'A', 'B'].map((note, index) => (
+            <div
+              key={index}
+              className='relative w-16 h-64 bg-white rounded-b-md border border-gray-300'
+            >
+              <span className='absolute bottom-2 left-2 text-sm text-gray-800 font-semibold'>
+                {note}
+              </span>
+            </div>
+          ))}
+
+          {/* Black Keys (positioned manually for simplicity) */}
+          <div className='absolute flex justify-between w-[448px] px-[30px] mt-2'>
+            {[0, 1, 3, 4, 5].map((index) => (
+              <div
+                key={index}
+                className='w-8 h-40 bg-black rounded-b-md shadow-lg z-10'
+              ></div>
+            ))}
           </div>
-          <div className='bg-white w-2/4 h-[150px] m-5 rounded-xl'>
-            <div>F</div>
-            <div>G</div>
-            <div>Y</div>
-            <div>P</div>
-            <div>.</div>
-          </div>
-          <div className='bg-white w-1/4 h-[150px] m-5 rounded-xl'>
-            <div>K</div>
-            <div>O</div>
-            <div>L</div>
-            <div>P</div>
-            <div>.</div>
-          </div>
+
         </div>
       </div>
     </>
